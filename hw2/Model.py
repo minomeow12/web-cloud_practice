@@ -10,11 +10,12 @@ class Model(ABC):
     pass
 
   @abstractmethod
-  def insert(self, title, artist, url):
+  def insert(self, title, artist, url, release_year):
     """
     Insert a new song into database
     :param title: string
-    :param artist
-    :params url: string
+    :param artist: string
+    :param url: string
+    :param release_year: integer
     """
     pass

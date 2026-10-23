@@ -9,6 +9,7 @@
         <th>Title</th>
         <th>Artist</th>
         <th>URL</th>
+        <th>Release Year</th>
       </tr>
 
       {% for entry in entries %}
@@ -25,6 +26,10 @@
             >no link provided, find on spotify</a
           >
           {% endif %}
+        </td>
+        <td>
+          {{ entry.release_year if entry.release_year is not none else "unknown"
+          }}
         </td>
       </tr>
       {% endfor %}

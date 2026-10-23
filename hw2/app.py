@@ -21,6 +21,7 @@ def playlist():
       title=row[1], 
       artist=row[2],
       url=row[3],
+      release_year=row[4]
     )
     for row in db.select()
   ]
@@ -34,7 +35,7 @@ def add():
   redirect to playlist when completed.
   """
   if request.method == 'POST':
-    db.insert(request.form['title'], request.form['artist'], request.form['url'])
+    db.insert(request.form['title'], request.form['artist'], request.form['url'], int(request.form['release_year']))
     return redirect(url_for('playlist'))
   return render_template('add.html')
 

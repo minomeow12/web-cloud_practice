@@ -10,7 +10,8 @@ class model(Model):
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           title TEXT NOT NULL,
           artist TEXT NOT NULL,
-          url TEXT
+          url TEXT,
+          release_year INTEGER
         )
       """)
 
@@ -30,18 +31,19 @@ class model(Model):
       return playlist
         
       
-  def insert(self, title, artist, url):
+  def insert(self, title, artist, url, release_year):
     """
         Appends a new list of value representing new song into playlist
         :param title: string
         :param artist: string
         :param url: string
+        :param release_year: integer
         :return True
     """ 
     with sqlite3.connect('playlist.db') as connection:
       connection.execute(
         """
-          INSERT INTO playlist (title, artist, url) VALUES (?, ?, ?)""", (title, artist, url)
+          INSERT INTO playlist (title, artist, url, release_year) VALUES (?, ?, ?, ?)""", (title, artist, url, release_year)
           )
       connection.commit()
       return True
