@@ -4,28 +4,34 @@
     <title>My Playlist</title>
   </head>
   <body>
-    <tr>
     <table border="1">
-      <th>Title</th>
-      <th>Artist</th>
-      <th>URL</th>
-    
-  </tr>
+      <tr>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>URL</th>
+      </tr>
 
-{% for entry in entries %}
-<tr>
-  <td>{{ entry.title }}</td>
-  <td>{{ entry.artist }}</td>
-  <td>
-    <a hrer="{{entry.url}}">listen</a>
-  </td>
-</tr>
-{% endfor %}
-</table>
-<br>
-<a href="/add">add a song?</a>
-<br>
-<a href="/">back to Home</a>
-
+      {% for entry in entries %}
+      <tr>
+        <td>{{ entry.title }}</td>
+        <td>{{ entry.artist }}</td>
+        <td>
+          {% if entry.url %}
+          <a href="{{ entry.url }}" target="_blank">listen</a>
+          {% else %}
+          <a
+            href="https://open.spotify.com/search/{{ (entry.title ~ ' ' ~ entry.artist) | urlencode }}"
+            target="_blank"
+            >no link provided, find on spotify</a
+          >
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <br />
+    <a href="/add">add a song?</a>
+    <br />
+    <a href="/">back to home</a>
   </body>
 </html>

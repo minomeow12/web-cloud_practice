@@ -1,0 +1,20 @@
+{% extends "layout.html" %} {% block content %}
+
+<h1>add a song to my playlist</h1>
+<form action="{{url_for('add') }}" method="POST">
+  <label>song title:</label>
+  <input type="text" id="title" name="title" required />
+  <br /><br />
+  <label>artist:</label>
+  <input type="text" id="artist" name="artist" required />
+  <br /><br />
+
+  <label>spotify url:</label>
+  <input type="url" name="url" placeholder="paste spotify link here" />
+  <br /><br />
+
+  <button type="submit">add a song</button>
+</form>
+<a href="/">back to Home</a>
+
+{% endblock %}
