@@ -1,9 +1,11 @@
+{% extends "layout.html" %} {% block content %}
 <!doctype html>
 <html>
   <head>
     <title>My Playlist</title>
   </head>
   <body>
+    <a href="/">back to home</a>
     <table border="1">
       <tr>
         <th>Title</th>
@@ -37,6 +39,6 @@
     <br />
     <a href="/add">add a song?</a>
     <br />
-    <a href="/">back to home</a>
   </body>
 </html>
+{% endblock %}

@@ -1,0 +1,119 @@
+body {
+  font-family: "STIX Two Text", serif;
+  font-weight: 500;
+
+  background-image: url("background.JPG");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 50px 6%;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 700;
+  color: #794b57;
+}
+a,
+button,
+input[type="submit"] {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 700;
+
+  display: inline-block;
+  background-color: #a76e7d;
+  color: white;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 8px 10px 8px 0;
+  transition: background-color 0.2s;
+}
+
+a:hover,
+button:hover,
+input[type="submit"]:hover {
+  background-color: #855062;
+  color: white;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 250, 246, 0.85);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #dfc9cc;
+  color: #a26275;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+th {
+  font-family: "Be Vietnam Pro", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  background-color: #a66d7e;
+  color: white;
+}
+
+form {
+  width: 100%;
+  max-width: 480px;
+}
+
+label {
+  font-family: "STIX Two Text", serif;
+  font-weight: 500;
+  font-size: 22px;
+  color: #794b57;
+}
+input[type="text"],
+input[type="url"],
+input[type="number"] {
+  width: 100%;
+  padding: 16px 18px;
+  font-family: "STIX Two Text", serif;
+  font-size: 20px;
+
+  background-color: #d4c4c9;
+  border: 1px solid #d8b8bf;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 22px;
+  padding: 18px;
+  background-color: #794b57;
+  color: white;
+  border-radius: 10px;
+}
+
+button[type="submit"]:hover {
+  background-color: #603642;
+}
