@@ -6,6 +6,7 @@ class Model(ABC):
   def select(self):
     """
     Gets all songs from the database
+    return: list of songs
     """
     pass
 
@@ -17,5 +18,6 @@ class Model(ABC):
     :param artist: string
     :param url: string
     :param release_year: integer
+    :rtype: bool
     """
     pass

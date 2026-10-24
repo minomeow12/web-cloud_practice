@@ -3,7 +3,13 @@ from Model import Model
 
 class model(Model):
   def __init__(self):
-    #create or open the database
+    """
+Initialize the SQLite database and create the playlist table
+if it does not already exist.
+
+:return: None
+:rtype: None
+"""
     with sqlite3.connect("playlist.db") as connection:
       connection.execute("""
         CREATE TABLE IF NOT EXISTS playlist (

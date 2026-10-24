@@ -1,5 +1,4 @@
 from flask import Flask, render_template, redirect, url_for, request
-from urllib.parse import quote
 from model_sqlite3 import model
 
 
@@ -11,11 +10,23 @@ db = model()
 @app.route('/')
 @app.route('/index.html')
 def index():
+   """
+    Display the home page.
+
+    :return: Rendered home page HTML.
+    :rtype: str
+    """
   return render_template('index.html')
 
 #view the playlist
 @app.route('/playlist')
 def playlist():
+      """
+    Retrieve all songs and display the playlist.
+
+    :return: Rendered playlist HTML.
+    :rtype: str
+    """
   entries = [ 
     dict(
       title=row[1], 
@@ -31,9 +42,11 @@ def playlist():
 @app.route('/add', methods=['GET','POST'])
 def add():
   """
-  Accept POST requests, and process the form;
-  redirect to playlist when completed.
-  """
+Display the Add Song form or process a new song submission.
+
+:return: Rendered HTML for GET or a redirect for POST.
+:rtype: str or werkzeug.wrappers.Response
+"""
   if request.method == 'POST':
     db.insert(request.form['title'], request.form['artist'], request.form['url'], int(request.form['release_year']))
     return redirect(url_for('playlist'))
