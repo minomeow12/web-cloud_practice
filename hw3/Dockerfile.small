@@ -1,0 +1,17 @@
+
+FROM python:3.12-alpine
+
+WORKDIR /app
+
+# Copy dependencies
+COPY requirements.txt .
+
+# Install Flask
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application
+COPY . .
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]
