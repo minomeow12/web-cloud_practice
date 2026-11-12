@@ -1,0 +1,44 @@
+{% extends "layout.html" %} {% block content %}
+<!doctype html>
+<html>
+  <head>
+    <title>My Playlist</title>
+  </head>
+  <body>
+    <a href="/">back to home</a>
+    <table border="1">
+      <tr>
+        <th>Title</th>
+        <th>Artist</th>
+        <th>URL</th>
+        <th>Release Year</th>
+      </tr>
+
+      {% for entry in entries %}
+      <tr>
+        <td>{{ entry.title }}</td>
+        <td>{{ entry.artist }}</td>
+        <td>
+          {% if entry.url %}
+          <a href="{{ entry.url }}" target="_blank">listen</a>
+          {% else %}
+          <a
+            href="https://open.spotify.com/search/{{ (entry.title ~ ' ' ~ entry.artist) | urlencode }}"
+            target="_blank"
+            >no link provided, find on spotify</a
+          >
+          {% endif %}
+        </td>
+        <td>
+          {{ entry.release_year if entry.release_year is not none else "unknown"
+          }}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+    <br />
+    <a href="/add">add a song?</a>
+    <br />
+  </body>
+</html>
+{% endblock %}

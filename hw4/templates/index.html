@@ -1,0 +1,5 @@
+{% extends "layout.html" %} {% block content %}
+<h1>welcome to my playlist corner</h1>
+<a href="{{ url_for('playlist') }}">view my playlist</a>
+<a href="{{ url_for('add') }}">add songs to my playlist</a>
+{% endblock %}
